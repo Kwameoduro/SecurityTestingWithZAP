@@ -1,4 +1,4 @@
-name: A security scan with OWASP ZAP
+name: Security scan with OWASP ZAP
 
 on:
   push:
