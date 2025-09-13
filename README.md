@@ -22,6 +22,8 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 - **GitHub Actions** – CI/CD pipeline automation.
 - **Docker** – Running OWASP ZAP in a containerized environment.
 - **Manual Testing** – Authentication, session management, input validation, and authorization checks.
+- **Markdown/PDF Reporting** – Professional security audit documentation.
+
 
 
 
