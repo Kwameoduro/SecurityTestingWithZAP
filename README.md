@@ -19,4 +19,6 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 ## Tools & Technologies
 
 - **OWASP ZAP** – Automated security scanning (baseline and active scans).
+- **GitHub Actions** – CI/CD pipeline automation.
+
 
