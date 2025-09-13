@@ -15,3 +15,8 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 - Automate security testing by integrating OWASP ZAP into a CI/CD pipeline.
 
 ---
+
+## Tools & Technologies
+
+- **OWASP ZAP** – Automated security scanning (baseline and active scans).
+
