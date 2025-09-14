@@ -1,7 +1,7 @@
 # Swag Labs Security Project
 
 This project is about the security testing of a mobile application. 
-The application under test is [Swag Labs](https://www.saucedemo.com/), a demo e-commerce site commonly used for testing.
+The application under test is [Swag Labs](https://www.saucedemo.com/), an e-commerce site.
 
 The project combines **automated scans** with OWASP ZAP, along with integration into a **CI/CD pipeline** using GitHub Actions.
 
