@@ -1,7 +1,7 @@
 # Swag Labs Security Project
 
 This project is about the security testing of a mobile application. 
-The application under test is [Swag Labs](https://www.saucedemo.com/), a demo e-commerce site commonly used for testing.
+The application under test is [Swag Labs](https://www.saucedemo.com/), an e-commerce site.
 
 The project combines **automated scans** with OWASP ZAP, along with integration into a **CI/CD pipeline** using GitHub Actions.
 
@@ -15,3 +15,16 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 - Automate security testing by integrating OWASP ZAP into a CI/CD pipeline.
 
 ---
+
+## Tools & Technologies
+
+- **OWASP ZAP** – Automated security scanning (baseline and active scans).
+- **GitHub Actions** – CI/CD pipeline automation.
+- **Docker** – Running OWASP ZAP in a containerized environment.
+- **Manual Testing** – Authentication, session management, input validation, and authorization checks.
+- **Markdown/PDF Reporting** – Professional security audit documentation.
+
+
+
+
+
