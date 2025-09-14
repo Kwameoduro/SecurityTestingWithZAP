@@ -43,13 +43,71 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
+#      - name: Send Slack notification
+#        run: |
+#          STATUS="${{ needs.zap_scan.result }}"
+#          EMOJI="❌"
+#          if [ "$STATUS" = "success" ]; then
+#            EMOJI="✅"
+#          fi
+#          curl -X POST -H 'Content-type: application/json' --data "{
+#            \"text\": \"${EMOJI} OWASP ZAP CI/CD finished with status: *$STATUS*\nRepo: $GITHUB_REPOSITORY\nCommit: <https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA%7C$GITHUB_SHA>\nZAP Report: https://$GITHUB_REPOSITORY_OWNER.github.io/${{ github.event.repository.name }}/zap_report.html\"
+#          }" ${{ secrets.SLACK_WEBHOOK_URL }}
+
       - name: Send Slack notification
         run: |
           STATUS="${{ needs.zap_scan.result }}"
           EMOJI="❌"
+          COLOR="#FF0000"
+          STATUS_MSG="Build process failed"
+          
           if [ "$STATUS" = "success" ]; then
             EMOJI="✅"
+            COLOR="#36a64f"
+            STATUS_MSG="Build completed successfully"
           fi
+          
           curl -X POST -H 'Content-type: application/json' --data "{
-            \"text\": \"${EMOJI} OWASP ZAP CI/CD finished with status: *$STATUS*\nRepo: $GITHUB_REPOSITORY\nCommit: <https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA%7C$GITHUB_SHA>\nZAP Report: https://$GITHUB_REPOSITORY_OWNER.github.io/${{ github.event.repository.name }}/zap_report.html\" 
+            \"attachments\": [
+              {
+                \"color\": \"$COLOR\",
+                \"blocks\": [
+                  {
+                    \"type\": \"section\",
+                    \"text\": {
+                      \"type\": \"mrkdwn\",
+                      \"text\": \"$EMOJI *OWASP ZAP CI/CD Pipeline*\\n*Status:* $STATUS_MSG\"
+                    }
+                  },
+                  {
+                    \"type\": \"section\",
+                    \"fields\": [
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Repo:* $GITHUB_REPOSITORY\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Commit:* <https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA|$GITHUB_SHA>\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Workflow:* $GITHUB_WORKFLOW\"
+                      },
+                      {
+                        \"type\": \"mrkdwn\",
+                        \"text\": \"*Run:* <https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|$GITHUB_RUN_ID>\"
+                      }
+                    ]
+                  },
+                  {
+                    \"type\": \"section\",
+                    \"text\": {
+                      \"type\": \"mrkdwn\",
+                      \"text\": \":clipboard: *Reports:*\\n• ZAP Report: https://$GITHUB_REPOSITORY_OWNER.github.io/${{ github.event.repository.name }}/zap_report.html\"
+                    }
+                  }
+                ]
+              }
+            ]
           }" ${{ secrets.SLACK_WEBHOOK_URL }}
