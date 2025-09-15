@@ -7,7 +7,7 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 
 ---
 
-## Objectives
+## Test Objectives
 
 - Perform vulnerability scanning and manual inspection of Swag Labs.
 - Identify, analyze, and document potential security flaws.
