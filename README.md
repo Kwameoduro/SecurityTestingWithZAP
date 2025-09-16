@@ -1,4 +1,4 @@
-# Swag Labs Security Project
+# Swag Labs Security Testing With ZAP
 
 This project is about the security testing of a mobile application. 
 The application under test is [Swag Labs](https://www.saucedemo.com/), an e-commerce site.
