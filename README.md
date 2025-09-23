@@ -23,8 +23,3 @@ The project combines **automated scans** with OWASP ZAP, along with integration 
 - **Docker** – Running OWASP ZAP in a containerized environment.
 - **Manual Testing** – Authentication, session management, input validation, and authorization checks.
 - **Markdown/PDF Reporting** – Professional security audit documentation.
-
-
-
-
-
